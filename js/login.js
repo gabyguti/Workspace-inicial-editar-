@@ -13,5 +13,5 @@ button.addEventListener("click", function() {
         location.href = "index2.html"; //location.href toma la url actual y redirecciona el navegador a una página nueva
     }
 
-    var data = sessionStorage.setItem('username', usuario);
+    let data = sessionStorage.setItem('username', usuario); // toma los datos ingresados en el form Usuario
 });
