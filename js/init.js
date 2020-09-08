@@ -45,6 +45,7 @@ var getJSONData = function(url) {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
+//Recordar usuario del login
 document.addEventListener("DOMContentLoaded", function(e) {
     document.getElementById("recordar").innerHTML = sessionStorage.getItem('username');
 });

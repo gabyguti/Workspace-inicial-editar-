@@ -1,39 +1,45 @@
-function showCar() {
+var carArray = [];
+
+function showImages(array) {
 
     let htmlContentToAppend = "";
-    for (let i = 0; i < currentProductsArray.length; i++) {
-        let product = currentProductsArray[i];
+    for (let i = 0; i < array.length; i++) {
+        let imageSrc = array[i];
 
-        if (((minCount == undefined) || (minCount != undefined && parseInt(product.productCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.productCount) <= maxCount))) {
-
-            htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">` + product.name + `</h4>
-                            <small class="text-muted">` + product.currency + " " + product.cost + "<br>" + product.soldCount + ` artículos vendidos</small>
-                        </div>
-                        <p class="mb-1">` + product.description + `</p>
-                    </div>
+        htmlContentToAppend += `
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
                 </div>
-            </a>
+            </div>q
             `
-        }
-
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
-
-
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e) {
+    getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            carArray = resultObj.data;
 
+            let a = document.getElementById("categoryName");
+            let b = document.getElementById("categoryDescription");
+            let c = document.getElementById("cost");
+            let d = document.getElementById("currency");
+            let e = document.getElementById("soldCount");
+            let f = document.getElementById("category");
+
+            a.innerHTML = carArray.name;
+            b.innerHTML = carArray.description;
+            c.innerHTML = carArray.cost;
+            d.innerHTML = carArray.currency;
+            e.innerHTML = carArray.soldCount;
+            f.innerHTML = carArray.category;
+            //Muestro las imagenes en forma de galería
+            showImages(carArray.images);
+        }
+    });
 });
