@@ -6,9 +6,10 @@ button.addEventListener("click", function() {
     var contraseña = document.getElementById("contraseña").value;
 
     if (usuario == "") {
-        alert("Ingrese el usuario");
+        document.getElementById("usuariox").style.display = "block";
     } else if (contraseña == "") {
-        alert("Ingrese la contraseña");
+        document.getElementById("contrax").style.display = "block";
+        document.getElementById("usuariox").style.display = "none";
     } else {
         location.href = "index2.html"; //location.href toma la url actual y redirecciona el navegador a una página nueva
     }

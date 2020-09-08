@@ -182,3 +182,13 @@ body {
 #recordar {
     color: white;
 }
+
+.error1 {
+    color: black;
+    font-weight: normal;
+    font-size: medium;
+}
+
+#formulario {
+    display: block;
+}
