@@ -192,3 +192,11 @@ body {
 #formulario {
     display: block;
 }
+
+.bordeRojo {
+    border: 1px solid red !important;
+}
+
+.bordeVerde {
+    border: 1px solid #28a745 !important;
+}

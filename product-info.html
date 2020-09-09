@@ -10,11 +10,12 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      -->
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -60,10 +61,40 @@
                     <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
                     </div>
                 </dd>
+
+                <dt>Productos relacionados:</dt>
+                <dd>
+                    <div class="row text-center text-lg-left pt-2" id="productImagesGallery2">
+                    </div>
+                </dd>
+
             </dl>
-            <a type="button" class="btn btn-dark btn-lg btn-block" href="products.html">Ver productos</a>
-            <br>
-            <br>
+            <hr class="my-3">
+            <div>
+                <!--Comentarios y calificación-->
+                <div class="text-center form-group">
+                    <h5>Comentarios sobre el producto:</h5>
+                    <textarea name="message" id="addComment" rows="8" cols="50" placeholder=" Agregue su comentario" required></textarea>
+                    <br>
+                    <h5>Calificación:</h5>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <br>
+                    <br>
+                    <button class="btn btn-success btn-circle" type="button" id="submitComment">Enviar</button>
+                    <div class="p-2">
+                        <p id="textError" style="display: none">Por favor, ingrese su comentario</p>
+                        <p id="commentExit" style="display: none">El comentario fue enviado con éxito</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a type="button" class="btn btn-dark btn-lg btn-block" href="products.html">Ver productos</a>
+        <br>
+        <br>
         </div>
     </main>
 
@@ -91,25 +122,5 @@
     </div>
     </div>
 </body>
-
-
-
-
-<!--    AREA TEXTO Y ESTRELLAS
-
-         <div class="container p-5">
-        <textarea name="message" id="mensaje" rows="10" cols="30" placeholder="Agregue su comentario" required></textarea>
-    </div>
-    <div>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-    </div>
-    <button type="submit">Enviar</button> -->
-
-
-
 
 </html>
