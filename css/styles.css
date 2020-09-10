@@ -200,3 +200,39 @@ body {
 .bordeVerde {
     border: 1px solid #28a745 !important;
 }
+
+#form {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+}
+
+#form p {
+    text-align: center;
+}
+
+.rate label {
+    font-size: 20px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.rate label {
+    color: grey;
+}
+
+.rate {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+.rate label:hover,
+.rate label:hover~label {
+    color: orange;
+}
+
+input[type="radio"]:checked~label {
+    color: orange;
+}

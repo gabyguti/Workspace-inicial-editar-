@@ -34,9 +34,12 @@ function showImages2(array) {
     }
 }
 
+var carComments = [];
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
@@ -55,27 +58,58 @@ document.addEventListener("DOMContentLoaded", function(e) {
             d.innerHTML = carArray.currency;
             e.innerHTML = carArray.soldCount;
             f.innerHTML = carArray.category;
-            //Muestro las imagenes en forma de galería
+            //Muestra imágenes en forma de galería
             showImages(carArray.images);
+        }
+    });
+});
+
+
+//Comentarios de usuarios
+document.addEventListener("DOMContentLoaded", function(e) {
+    getJSONData(PPRODUCT_INFO_COMMENTS_URL).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            carComments = resultObj.data;
+
+            let a = document.getElementById("score");
+            let b = document.getElementById("description");
+            let c = document.getElementById("user");
+            let d = document.getElementById("dateTime");
+
+            a.innerHTML = carComments.score;
+            b.innerHTML = carComments.description;
+            c.innerHTML = carComments.user;
+            d.innerHTML = carComments.dateTime;
+            //Muestra imagenes en forma de galeria
             showImages2(carArray.relatedProducts);
         }
     });
 });
 
-//Comentarios del producto
-comentario = document.getElementById("addComment"); //textarea
-error = document.getElementById("textError"); // mensaje error
-submit = document.getElementById("submitComment"); //botón "Enviar"
-exit = document.getElementById("commentExit"); // mensaje comentario exitoso
+//Agregar comentario y puntuación
+var comentario = document.getElementById("addComment"); //textarea
+var error = document.getElementById("textError"); // mensaje error comentario
+var error2 = document.getElementById("textError2"); // mensaje error calificación
+var submit = document.getElementById("submitComment"); //botón "Enviar"
+var exit = document.getElementById("commentExit"); // mensaje comentario exitoso
+var rating1 = document.getElementById("radio1"); //estrella #1
 
-submit.addEventListener("click", () => {
+submit.addEventListener("click", function() {
+
     if (comentario.value == "" || comentario.value == null) {
         comentario.classList.add("bordeRojo");
         error.style.display = "block";
-    } else {
+
+    } else if (rating1.value != 1) {
+        error2.style.display = "block";
+        error.style.display = "none";
+        comentario.classList.remove("bordeRojo");
+
+    } else if (comentario.value != "" || comentario.value != null && rating1.value == 1) {
         exit.style.display = "block";
         comentario.classList.add("bordeVerde");
         comentario.value = "";
         error.style.display = "none";
-    }
+        error2.style.display = "none";
+    };
 });

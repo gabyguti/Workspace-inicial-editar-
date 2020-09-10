@@ -76,26 +76,33 @@
                     <h5>Comentarios sobre el producto:</h5>
                     <textarea name="message" id="addComment" rows="8" cols="50" placeholder=" Agregue su comentario" required></textarea>
                     <br>
+
                     <h5>Calificación:</h5>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <br>
-                    <br>
+                    <!--Estrellas-->
+                    <form>
+                        <p class="rate">
+                            <input id="radio1" type="radio" name="estrellas" value="5">
+                            <label for="radio1">★</label>
+                            <input id="radio2" type="radio" name="estrellas" value="4">
+                            <label for="radio2">★</label>
+                            <input id="radio3" type="radio" name="estrellas" value="3">
+                            <label for="radio3">★</label>
+                            <input id="radio4" type="radio" name="estrellas" value="2">
+                            <label for="radio4">★</label>
+                            <input id="radio5" type="radio" name="estrellas" value="1">
+                            <label for="radio5">★</label>
+                        </p>
+                    </form>
                     <button class="btn btn-success btn-circle" type="button" id="submitComment">Enviar</button>
-                    <div class="p-2">
-                        <p id="textError" style="display: none">Por favor, ingrese su comentario</p>
-                        <p id="commentExit" style="display: none">El comentario fue enviado con éxito</p>
-                    </div>
+                    <div id="textError" class="p-2" style="display: none">Por favor, ingrese su comentario</div>
+                    <div id="textError2" class="p-2" style="display: none">Por favor, ingrese su calificación</div>
+                    <div id="commentExit" class="p-2" style="display: none">El comentario fue enviado con éxito</div>
                 </div>
             </div>
         </div>
         <a type="button" class="btn btn-dark btn-lg btn-block" href="products.html">Ver productos</a>
         <br>
         <br>
-        </div>
     </main>
 
     <footer class="text-muted bg-dark">
