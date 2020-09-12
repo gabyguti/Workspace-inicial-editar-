@@ -16,11 +16,12 @@ function showImages(array) { //Muestra imágenes del producto
     }
 }
 
+//Datos del producto
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
             carArray = resultObj.data;
-            //Datos del producto
+
             let a = document.getElementById("name");
             let b = document.getElementById("categoryDescription");
             let c = document.getElementById("cost");
@@ -39,56 +40,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }
     });
 });
-
-
-var relatedProducts = [];
-
-function showRelatedProducts(array) { // Muestra productos relacionados
-    let htmlContentToAppend = "";
-    for (let i = 0; i < array.length; i++) {
-        let relProd = array[i];
-
-        htmlContentToAppend += `
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="` + relProd + `" alt="">
-                </div>
-            </div>
-            `
-        document.getElementById("productImagesGallery2").innerHTML = htmlContentToAppend;
-    }
-}
-
-document.addEventListener("DOMContentLoaded", function(e) {
-    getJSONData(PRODUCTS_URL).then(function(resultObj) {
-        if (resultObj.status === "ok") {
-            relatedProducts = resultObj.data;
-
-            let a = document.getElementById("rel");
-
-            a.innerHTML = relatedProducts.name;
-            //Muestra imágenes en forma de galería
-            showRelatedProducts(relatedProducts.relProd);
-        }
-    });
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //Comentarios 
 var carComments = [];
@@ -119,7 +70,6 @@ function showComments() {
     document.getElementById("comment-list").innerHTML = htmlContentToAppend;
 }
 
-//Llama al Json 
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
@@ -129,6 +79,42 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }
     });
 });
+
+
+var product = [];
+var relatedProduct = [];
+
+//Muestra productos relacionados
+function showRelatedProducts(array) {
+    let htmlContentToAppend = "";
+    for (let i = 0; i < array.length; i++) {
+        var relPosic = array[i];
+        var relaciona2 = relatedProduct[relPosic];
+
+        htmlContentToAppend += `
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="` + relaciona2.imgSrc + `" alt="">
+                    <h4 class="mb-1">` + relaciona2.name + `</h4>
+                    <p class="mb-1">` + relaciona2.description + `</p>
+                    <a href="product-info.html"> Ir </a>
+                </div>
+            </div>
+            `
+    }
+    document.getElementById("relProd").innerHTML = htmlContentToAppend;
+}
+
+document.addEventListener("DOMContentLoaded", function(e) {
+    getJSONData(PRODUCTS_URL).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            relatedProduct = resultObj.data;
+            //Muestra los productos relacionados
+            showRelatedProducts(product.relatedProducts);
+        }
+    });
+});
+
 
 //Agregar comentario y puntuación
 var comentario = document.getElementById("addComment"); //textarea
@@ -140,16 +126,17 @@ var rating1 = document.getElementById("radio1"); //estrella #1
 
 submit.addEventListener("click", function() {
 
-    if (comentario.value == "" || comentario.value == null) {
+    if (comentario.value === "" || comentario.value == null) {
         comentario.classList.add("bordeRojo");
         error.style.display = "block";
 
     } else if (rating1.value != 1) {
+        comentario.classList.remove("bordeRojo");
         error2.style.display = "block";
         error.style.display = "none";
-        comentario.classList.remove("bordeRojo");
+        rating1.value = 1;
 
-    } else if (comentario.value != "" || comentario.value != null && rating1.value == 1) {
+    } else if (comentario.value != "" || comentario.value != null || rating1.value === 1) {
         exit.style.display = "block";
         comentario.classList.add("bordeVerde");
         comentario.value = "";
