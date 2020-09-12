@@ -1,7 +1,6 @@
 var carArray = [];
 
-function showImages(array) {
-
+function showImages(array) { //Muestra imágenes del producto
     let htmlContentToAppend = "";
     for (let i = 0; i < array.length; i++) {
         let imageSrc = array[i];
@@ -17,35 +16,12 @@ function showImages(array) {
     }
 }
 
-function showImages2(array) {
-
-    let htmlContentToAppend = "";
-    for (let i = 0; i < array.length; i++) {
-        let image = array[i];
-
-        htmlContentToAppend += `
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="` + image + `" alt="">
-                </div>
-            </div>
-            `
-        document.getElementById("productImagesGallery2").innerHTML = htmlContentToAppend;
-    }
-}
-
-var carComments = [];
-
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
             carArray = resultObj.data;
             //Datos del producto
-            let a = document.getElementById("categoryName");
+            let a = document.getElementById("name");
             let b = document.getElementById("categoryDescription");
             let c = document.getElementById("cost");
             let d = document.getElementById("currency");
@@ -65,23 +41,91 @@ document.addEventListener("DOMContentLoaded", function(e) {
 });
 
 
-//Comentarios de usuarios
+var relatedProducts = [];
+
+function showRelatedProducts(array) { // Muestra productos relacionados
+    let htmlContentToAppend = "";
+    for (let i = 0; i < array.length; i++) {
+        let relProd = array[i];
+
+        htmlContentToAppend += `
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="` + relProd + `" alt="">
+                </div>
+            </div>
+            `
+        document.getElementById("productImagesGallery2").innerHTML = htmlContentToAppend;
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function(e) {
-    getJSONData(PPRODUCT_INFO_COMMENTS_URL).then(function(resultObj) {
+    getJSONData(PRODUCTS_URL).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            relatedProducts = resultObj.data;
+
+            let a = document.getElementById("rel");
+
+            a.innerHTML = relatedProducts.name;
+            //Muestra imágenes en forma de galería
+            showRelatedProducts(relatedProducts.relProd);
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Comentarios 
+var carComments = [];
+
+function showComments() {
+
+    let htmlContentToAppend = "";
+    for (let i = 0; i < carComments.length; i++) {
+        let comment = carComments[i];
+
+        htmlContentToAppend += `
+            <a href="product-info.html" class="list-group-item list-group-item-action">
+                <div class="font-weight-bold row">Estrellas
+                    <div class="col-3">
+                    <h5 class="mb-1">` + comment.score + `</h5>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h7 class="font-weight-bold mb-1">` + comment.user + `</h7>
+                            <small>` + comment.dateTime + " " + "<br>" + `</small>
+                        </div>
+                        <h6 class="mb-1">` + comment.description + `</h6>
+                    </div>
+                </div>
+            </a>
+            `
+    }
+    document.getElementById("comment-list").innerHTML = htmlContentToAppend;
+}
+
+//Llama al Json 
+document.addEventListener("DOMContentLoaded", function(e) {
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
             carComments = resultObj.data;
-
-            let a = document.getElementById("score");
-            let b = document.getElementById("description");
-            let c = document.getElementById("user");
-            let d = document.getElementById("dateTime");
-
-            a.innerHTML = carComments.score;
-            b.innerHTML = carComments.description;
-            c.innerHTML = carComments.user;
-            d.innerHTML = carComments.dateTime;
-            //Muestra imagenes en forma de galeria
-            showImages2(carArray.relatedProducts);
+            //Muestra los comentarios
+            showComments();
         }
     });
 });

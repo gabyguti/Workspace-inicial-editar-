@@ -6,6 +6,7 @@ var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
 
+//Ordena productos por precio y cantidad de prod. vendidos
 function sortProducts(criteria, array) {
     let result = [];
     if (criteria === ORDER_ASC_BY_PRICE) {
@@ -31,7 +32,6 @@ function sortProducts(criteria, array) {
 }
 
 function showProductsList() {
-
     let htmlContentToAppend = "";
     for (let i = 0; i < currentProductsArray.length; i++) {
         let product = currentProductsArray[i];

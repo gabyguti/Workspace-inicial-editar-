@@ -32,7 +32,7 @@
     <main>
         <div class="container mt-5">
             <div class="text-center p-4">
-                <h2 id="categoryName"></h2>
+                <h2 id="name"></h2>
                 <hr class="my-3">
             </div>
             <dl> <dt>Descripción</dt>
@@ -61,44 +61,56 @@
                     <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
                     </div>
                 </dd>
+                <hr class="my-3">
 
                 <dt>Productos relacionados:</dt>
                 <dd>
                     <div class="row text-center text-lg-left pt-2" id="productImagesGallery2">
                     </div>
+                    <p id="rel"></p>
                 </dd>
-
             </dl>
             <hr class="my-3">
-            <div>
-                <!--Comentarios y calificación-->
-                <div class="text-center form-group">
-                    <h5>Comentarios sobre el producto:</h5>
-                    <textarea name="message" id="addComment" rows="8" cols="50" placeholder=" Agregue su comentario" required></textarea>
-                    <br>
+            <dt> Comentarios</dt>
 
-                    <h5>Calificación:</h5>
-                    <!--Estrellas-->
-                    <form>
-                        <p class="rate">
-                            <input id="radio1" type="radio" name="estrellas" value="5">
-                            <label for="radio1">★</label>
-                            <input id="radio2" type="radio" name="estrellas" value="4">
-                            <label for="radio2">★</label>
-                            <input id="radio3" type="radio" name="estrellas" value="3">
-                            <label for="radio3">★</label>
-                            <input id="radio4" type="radio" name="estrellas" value="2">
-                            <label for="radio4">★</label>
-                            <input id="radio5" type="radio" name="estrellas" value="1">
-                            <label for="radio5">★</label>
-                        </p>
-                    </form>
-                    <button class="btn btn-success btn-circle" type="button" id="submitComment">Enviar</button>
-                    <div id="textError" class="p-2" style="display: none">Por favor, ingrese su comentario</div>
-                    <div id="textError2" class="p-2" style="display: none">Por favor, ingrese su calificación</div>
-                    <div id="commentExit" class="p-2" style="display: none">El comentario fue enviado con éxito</div>
-                </div>
+            <div id="score"></div>
+            <div id="description"></div>
+            <div id="user"></div>
+            <div id="dateTime"></div>
+
+            <div class="p-2">
+                <div class="list-group" id="comment-list"></div>
             </div>
+        </div>
+        </dl>
+
+        <!--Comentarios y calificación-->
+        <div class="text-center form-group">
+            <h5>Publica tu comentario:</h5>
+            <textarea name="message" id="addComment" rows="8" cols="50" placeholder=" Agregue su comentario" required></textarea>
+            <br>
+
+            <h5>Calificación:</h5>
+            <!--Estrellas-->
+            <form>
+                <p class="rate">
+                    <input id="radio1" type="radio" name="estrellas" value="5">
+                    <label for="radio1">★</label>
+                    <input id="radio2" type="radio" name="estrellas" value="4">
+                    <label for="radio2">★</label>
+                    <input id="radio3" type="radio" name="estrellas" value="3">
+                    <label for="radio3">★</label>
+                    <input id="radio4" type="radio" name="estrellas" value="2">
+                    <label for="radio4">★</label>
+                    <input id="radio5" type="radio" name="estrellas" value="1">
+                    <label for="radio5">★</label>
+                </p>
+            </form>
+            <button class="btn btn-success btn-circle" type="button" id="submitComment">Enviar</button>
+            <div id="textError" class="p-2" style="display: none">Por favor, ingrese su comentario</div>
+            <div id="textError2" class="p-2" style="display: none">Por favor, ingrese su calificación</div>
+            <div id="commentExit" class="p-2" style="display: none">El comentario fue enviado con éxito</div>
+        </div>
         </div>
         <a type="button" class="btn btn-dark btn-lg btn-block" href="products.html">Ver productos</a>
         <br>
