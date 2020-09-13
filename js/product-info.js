@@ -3,12 +3,12 @@ var carArray = [];
 function showImages(array) { //Muestra imágenes del producto
     let htmlContentToAppend = "";
     for (let i = 0; i < array.length; i++) {
-        let imageSrc = array[i];
+        let image = array[i];
 
         htmlContentToAppend += `
             <div class="col-lg-3 col-md-4 col-6">
                 <div class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+                    <img class="img-fluid img-thumbnail" src="` + image + `" alt="">
                 </div>
             </div>
             `
@@ -39,6 +39,16 @@ document.addEventListener("DOMContentLoaded", function(e) {
             showImages(carArray.images);
         }
     });
+
+
+
+
+
+
+
+
+
+
 });
 
 //Comentarios 
@@ -81,23 +91,22 @@ document.addEventListener("DOMContentLoaded", function(e) {
 });
 
 
-var product = [];
-var relatedProduct = [];
+var prod = [];
+var relatedProducts = [];
 
 //Muestra productos relacionados
 function showRelatedProducts(array) {
     let htmlContentToAppend = "";
     for (let i = 0; i < array.length; i++) {
-        var relPosic = array[i];
-        var relaciona2 = relatedProduct[relPosic];
+        let rel1 = array[i];
+        let rel2 = relatedProducts[rel1];
 
         htmlContentToAppend += `
             <div class="col-lg-3 col-md-4 col-6">
                 <div class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="` + relaciona2.imgSrc + `" alt="">
-                    <h4 class="mb-1">` + relaciona2.name + `</h4>
-                    <p class="mb-1">` + relaciona2.description + `</p>
-                    <a href="product-info.html"> Ir </a>
+                    <img class="img-fluid img-thumbnail" src="` + rel2.imgSrc + `" alt="">
+                    <h4 class="mb-1">` + rel2.name + `</h4>
+                       <a href="product-info.html"> Ir </a>
                 </div>
             </div>
             `
@@ -107,11 +116,10 @@ function showRelatedProducts(array) {
 
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(PRODUCTS_URL).then(function(resultObj) {
-        if (resultObj.status === "ok") {
-            relatedProduct = resultObj.data;
-            //Muestra los productos relacionados
-            showRelatedProducts(product.relatedProducts);
-        }
+        if (resultObj.status === "ok") { relatedProducts = resultObj.data; }
+        //Muestra los productos relacionados
+        showRelatedProducts(prod.relatedProducts);
+        alert("sdf");
     });
 });
 
