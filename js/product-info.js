@@ -39,16 +39,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
             showImages(carArray.images);
         }
     });
-
-
-
-
-
-
-
-
-
-
 });
 
 //Comentarios 
@@ -119,7 +109,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
         if (resultObj.status === "ok") { relatedProducts = resultObj.data; }
         //Muestra los productos relacionados
         showRelatedProducts(prod.relatedProducts);
-        alert("sdf");
     });
 });
 
