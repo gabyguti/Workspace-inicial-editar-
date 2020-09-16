@@ -1,6 +1,7 @@
+//Imágenes del producto
 var carArray = [];
 
-function showImages(array) { //Muestra imágenes del producto
+function showImages(array) {
     let htmlContentToAppend = "";
     for (let i = 0; i < array.length; i++) {
         let image = array[i];
@@ -15,31 +16,6 @@ function showImages(array) { //Muestra imágenes del producto
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
-
-//Datos del producto
-document.addEventListener("DOMContentLoaded", function(e) {
-    getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
-        if (resultObj.status === "ok") {
-            carArray = resultObj.data;
-
-            let a = document.getElementById("name");
-            let b = document.getElementById("categoryDescription");
-            let c = document.getElementById("cost");
-            let d = document.getElementById("currency");
-            let e = document.getElementById("soldCount");
-            let f = document.getElementById("category");
-
-            a.innerHTML = carArray.name;
-            b.innerHTML = carArray.description;
-            c.innerHTML = carArray.cost;
-            d.innerHTML = carArray.currency;
-            e.innerHTML = carArray.soldCount;
-            f.innerHTML = carArray.category;
-            //Muestra imágenes en forma de galería
-            showImages(carArray.images);
-        }
-    });
-});
 
 //Comentarios 
 var carComments = [];
@@ -70,45 +46,77 @@ function showComments() {
     document.getElementById("comment-list").innerHTML = htmlContentToAppend;
 }
 
+//Productos relacionados
+var relProd = [];
+
+function showRelProd() {
+    let htmlContentToAppend = "";
+    for (let i = 0; i < relProd.length; i++) {
+        let product = relProd[i];
+
+        if ((product.name == "Fiat Way") || (product.name == "Peugeot 208")) {
+
+            htmlContentToAppend += `
+            <a href="product-info.html" class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col-2">
+                        <img src="` + product.imgSrc + `" alt="` + `" class="img-thumbnail">
+                    </div>
+                    <div class="col-4">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">` + product.name + `</h4>
+                            </div>
+                        <p class="mb-1">` + product.description + `</p>
+                        <small>` + ` Ver</small>
+                    </div>
+                </div>
+            </a>
+            `
+            document.getElementById("relProd").innerHTML = htmlContentToAppend;
+        }
+    }
+}
+
+
+//Datos del producto
 document.addEventListener("DOMContentLoaded", function(e) {
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj) {
+
+    getJSONData(PRODUCT_INFO_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
-            carComments = resultObj.data;
+            carArray = resultObj.data;
+
+            let a = document.getElementById("name");
+            let b = document.getElementById("categoryDescription");
+            let c = document.getElementById("cost");
+            let d = document.getElementById("currency");
+            let e = document.getElementById("soldCount");
+            let f = document.getElementById("category");
+
+            a.innerHTML = carArray.name;
+            b.innerHTML = carArray.description;
+            c.innerHTML = carArray.cost;
+            d.innerHTML = carArray.currency;
+            e.innerHTML = carArray.soldCount;
+            f.innerHTML = carArray.category;
+            //Muestra imágenes en forma de galería
+            showImages(carArray.images);
+        }
+    });
+
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(x) {
+        if (x.status === "ok") {
+            carComments = x.data;
             //Muestra los comentarios
             showComments();
         }
     });
-});
 
-
-var prod = [];
-var relatedProducts = [];
-
-//Muestra productos relacionados
-function showRelatedProducts(array) {
-    let htmlContentToAppend = "";
-    for (let i = 0; i < array.length; i++) {
-        let rel1 = array[i];
-        let rel2 = relatedProducts[rel1];
-
-        htmlContentToAppend += `
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="` + rel2.imgSrc + `" alt="">
-                    <h4 class="mb-1">` + rel2.name + `</h4>
-                       <a href="product-info.html"> Ir </a>
-                </div>
-            </div>
-            `
-    }
-    document.getElementById("relProd").innerHTML = htmlContentToAppend;
-}
-
-document.addEventListener("DOMContentLoaded", function(e) {
-    getJSONData(PRODUCTS_URL).then(function(resultObj) {
-        if (resultObj.status === "ok") { relatedProducts = resultObj.data; }
-        //Muestra los productos relacionados
-        showRelatedProducts(prod.relatedProducts);
+    getJSONData(PRODUCTS_URL).then(function(y) {
+        if (y.status === "ok") {
+            relProd = y.data;
+            //Muestra los productos relacionados
+            showRelProd();
+        }
     });
 });
 
