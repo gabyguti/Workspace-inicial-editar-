@@ -46,6 +46,7 @@ function showComments() {
     document.getElementById("comment-list").innerHTML = htmlContentToAppend;
 }
 
+
 //Productos relacionados
 var relProd = [];
 
@@ -54,6 +55,7 @@ function showRelProd() {
     for (let i = 0; i < relProd.length; i++) {
         let product = relProd[i];
 
+        /*  if ((carArray.relatedProducts.value === 1) || (carArray.relatedProducts.value === 3)) {  */
         if ((product.name == "Fiat Way") || (product.name == "Peugeot 208")) {
 
             htmlContentToAppend += `
@@ -76,7 +78,6 @@ function showRelProd() {
         }
     }
 }
-
 
 //Datos del producto
 document.addEventListener("DOMContentLoaded", function(e) {
@@ -103,19 +104,19 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }
     });
 
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(x) {
-        if (x.status === "ok") {
-            carComments = x.data;
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            carComments = resultObj.data;
             //Muestra los comentarios
             showComments();
         }
     });
 
-    getJSONData(PRODUCTS_URL).then(function(y) {
-        if (y.status === "ok") {
-            relProd = y.data;
+    getJSONData(PRODUCTS_URL).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            relProd = resultObj.data;
             //Muestra los productos relacionados
-            showRelProd();
+            showRelProd(carArray.relatedProducts);
         }
     });
 });
