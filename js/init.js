@@ -47,5 +47,12 @@ var getJSONData = function(url) {
 
 //Recordar usuario del login
 document.addEventListener("DOMContentLoaded", function(e) {
-    document.getElementById("recordar").innerHTML = sessionStorage.getItem('username');
+    if (document.getElementById("recordar")) {
+        document.getElementById("recordar").innerHTML = sessionStorage.getItem('username');
+    }
 });
+
+//Al cerrar usuario, se elimina el nombre usuario
+function cerrarSesion() {
+    window.sessionStorage.removeItem("username");
+}

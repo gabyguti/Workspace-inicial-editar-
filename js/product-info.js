@@ -50,15 +50,15 @@ function showComments() {
 //Productos relacionados
 var relProd = [];
 
-function showRelProd() {
+function showRelProd(array) {
     let htmlContentToAppend = "";
-    for (let i = 0; i < relProd.length; i++) {
-        let product = relProd[i];
+    for (let i = 0; i < array.length; i++) {
+        let product = array[i];
 
-        /*  if ((carArray.relatedProducts.value === 1) || (carArray.relatedProducts.value === 3)) {  */
-        if ((product.name == "Fiat Way") || (product.name == "Peugeot 208")) {
+        /*        if ((carArray.relatedProducts.value === 1) || (carArray.relatedProducts.value === 3)) {
+                         if ((product.name == "Fiat Way") || (product.name == "Peugeot 208")) {   */
 
-            htmlContentToAppend += `
+        htmlContentToAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-2">
@@ -74,10 +74,11 @@ function showRelProd() {
                 </div>
             </a>
             `
-            document.getElementById("relProd").innerHTML = htmlContentToAppend;
-        }
+        document.getElementById("relProd").innerHTML = htmlContentToAppend;
     }
 }
+
+
 
 //Datos del producto
 document.addEventListener("DOMContentLoaded", function(e) {
