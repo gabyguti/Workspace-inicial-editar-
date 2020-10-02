@@ -44,13 +44,27 @@
             <div class="py-2 d-none d-md-inline-block" id="recordar"></div>
         </div>
     </nav>
-    <div class="container p-5">
-        <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-            <h4 class="alert-heading">¡A trabajar! :)</h4>
-            <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-            <hr>
-            <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+    <div class="container mt-5">
+        <div class="text-center p-4">
+            <h2 id="cart">Carrito</h2>
         </div>
+
+        <div class="col-3"></div>
+        <input type="number" id="selector" onchange="cartt()" min="0">
+        <div id="carro">0</div>
+    </div>
+
+    <footer class="text-muted bg-dark">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Volver arriba</a>
+            </p>
+            <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+        </div>
+    </footer>
+
+    <div class="container p-5">
     </div>
     <div id="spinner-wrapper">
         <div class="lds-ring">
