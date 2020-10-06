@@ -236,3 +236,8 @@ input[type="radio"] {
 input[type="radio"]:checked~label {
     color: orange;
 }
+
+.gris {
+    background-color: #C5C6C6;
+    border: none;
+}

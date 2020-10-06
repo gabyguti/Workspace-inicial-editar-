@@ -19,25 +19,31 @@
     <br>
     <div>
         <form id="formulario" class="cuad">
-            <!-- USUARIO-->
-            <label for="usuario">Usuario:</label>
-            <br>
-            <input type="text" id="usuario" maxlength="30" placeholder="Ingrese el usuario/mail">
-            <span id="usuariox" class="error1" style="display: none">Complete el campo</span>
-            <br>
-            <!-- CONTRASEÑA-->
-            <label for="contraseña">Contraseña:</label>
-            <br>
-            <input type=password id="contraseña" maxlength="15" style="display: inline-block" placeholder="Ingrese su contraseña">
-            <span id="contrax" class="error1" style="display: none">Complete el campo</span>
-            <br>
-            <br>
+            <!-- Usuario-->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend ">
+                    <label for="usuario" class="input-group-text">Usuario</label>
+                </div>
+                <input type="text" id="usuario" maxlength="50" class="form-control" placeholder="Ingrese el usuario/mail">
+                <span id="usuariox" class="error1 input-group alert-danger" style="display: none">Complete el campo</span>
+            </div>
+            <!-- Contraseña-->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label for="contraseña" class="input-group-text">Contraseña</label>
+                </div>
+                <input type="password" id="contraseña" maxlength="15" class="form-control" placeholder="Ingrese la contraseña">
+                <span id="contrax" class="error1 input-group alert-danger" style="display: none">Complete el campo</span>
+            </div>
 
-            <input type="checkbox" id="remember">
-            <label for="remember">Recordar usuario</label>
-            <br>
-            <!-- onclick: ejecuta un JavaScript cuando se clickea el botón -->
-            <button id="btn" type="button" class="button">Acceder</button>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"> <input type="checkbox"> </div>
+                </div>
+                <p class="form-control"> Recordar usuario</p>
+            </div>
+
+            <button id="btn" type="button" class="btn btn-dark">Acceder</button>
             <br>
             <br>
         </form>
