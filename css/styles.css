@@ -10,8 +10,9 @@
 }
 
 .jumbotron {
-    height: 65vh;
+    height: 50vh;
     padding: 5em inherit;
+    margin-bottom: 0;
     background-color: #53C0FB;
     background: url('../img/cover_back.png');
     background-size: cover;
@@ -155,7 +156,8 @@ a.custom-card:hover {
     font-family: 'Franklin Gothic Medium' 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
     color: #d61c6c;
-    box-shadow: 10px 10px 10px #e06174;
+    box-shadow: 10px 10px #5d763a;
+    border: 2px solid #fff;
 }
 
 button {
