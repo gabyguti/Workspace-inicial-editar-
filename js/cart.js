@@ -1,8 +1,7 @@
+/*var cartArray = [];*/
 const CART_URL = "https://japdevdep.github.io/ecommerce-api/cart/654.json";
 let jsonGeneral;
 
-// Función que calcula el costo de la compra según la cantidad de productos (Grupal)
-//Si la moneda de la posición 0 del objeto del array es en UYU, se pasa a USD
 function result(jsonGeneral) {
     let costo;
     let object = jsonGeneral.articles;
@@ -27,9 +26,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
 });
 
-
-var cartArray = [];
-
+/*
 function showCart(array) {
     let htmlContentToAppend = "";
     for (let i = 0; i < array.length; i++) {
@@ -56,8 +53,10 @@ function showCart(array) {
         document.getElementById("cart").innerHTML = htmlContentToAppend;
     }
 }
+*/
 
 
+/*
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(CART_INFO_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
@@ -65,4 +64,4 @@ document.addEventListener("DOMContentLoaded", function(e) {
             showCart(cartArray);
         }
     });
-});
+}); */

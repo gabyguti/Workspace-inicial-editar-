@@ -41,64 +41,44 @@
             <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
             <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
             <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="recordar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="my-profile.html">Ver perfil</a>
-                    <a class="dropdown-item" href="cart.html">Carrito</a>
-                    <a class="dropdown-item" href="index.html" onclick="cerrarSesion()">Cerrar sesión</a>
-                </div>
-            </div>
+            <div class="py-2 d-none d-md-inline-block" id="recordar"></div>
         </div>
     </nav>
 
     <div class="container mt-5">
         <div class="text-center p-4">
-            <h2 id="cart">🛒 Mi Carrito </h2>
-            <hr class="my-3">
-        </div>
-
-        <div>
-            <div class="col-3"> Artículos</div>
-            <div class="row-6"> Artículos</div>
-            <hr class="my-3">
+            <h2 id="cart">Carrito</h2>
         </div>
 
         <div class="col-3"></div>
-        <h6>Total:</h6>
-        <input placeholder="Cantidad" type="number" id="selector" onchange="cartt()" min="0">
+        <input type="number" id="selector" onchange="cartt()" min="0">
         <div id="carro">0</div>
     </div>
 
-    <span class="btn btn-info btn-lg glyphicon glyphicon-shopping-cart"> Comprar</span>
-    <span class="btn btn-info btn-lg glyphicon glyphicon-shopping-cart gris"> Facturación y Envío</span>
-    <span class="btn btn-info btn-lg glyphicon glyphicon-shopping-cart gris"> Confirmación</span>
-
-
-    <footer class="text-muted bg-dark ">
-        <div class="container ">
-            <p class="float-right ">
-                <a href="# ">Volver arriba</a>
+    <footer class="text-muted bg-dark">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Volver arriba</a>
             </p>
             <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
         </div>
     </footer>
 
-    <div class="container p-5 ">
+    <div class="container p-5">
     </div>
-    <div id="spinner-wrapper ">
-        <div class="lds-ring ">
+    <div id="spinner-wrapper">
+        <div class="lds-ring">
             <div></div>
             <div></div>
             <div></div>
             <div></div>
         </div>
     </div>
-    <script src="js/jquery-3.4.1.min.js "></script>
-    <script src="js/bootstrap.bundle.min.js "></script>
-    <script src="js/dropzone.js "></script>
-    <script src="js/init.js "></script>
-    <script src="js/cart.js "></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 
 </html>
