@@ -10,7 +10,7 @@ function result(jsonGeneral) {
         costo = object[0].unitCost / 40;
     }
     let resultado = valor * costo;
-    document.getElementById('carro').innerHTML = `Total = ` + object[1].currency + ` ` + resultado + ``;
+    document.getElementById('carro').innerHTML = object[1].currency + ` ` + resultado + ``;
 }
 
 function cartt() {

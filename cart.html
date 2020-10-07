@@ -54,13 +54,42 @@
 
     <div class="container mt-5">
         <div class="text-center p-4">
-            <h2 id="cart">Carrito</h2>
+            <h2 id="cart">🛒 Mi Carrito</h2>
+            <hr class="my-3">
         </div>
 
-        <div class="col-3"></div>
-        <input type="number" id="selector" onchange="cartt()" min="0">
-        <div id="carro">0</div>
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <div class="py-2 d-none d-md-inline-block">Artículo</div>
+            <div class="py-2 d-none d-md-inline-block">Costo unitario</div>
+            <div class="py-2 d-none d-md-inline-block">Cantidad</div>
+            <div class="py-2 d-none d-md-inline-block">Subtotal</div>
+        </div>
+
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <div id="asdf">asdf</div>
+            <div id="asdfa">asdfa</div>
+            <input placeholder="Cantidad" type="number" id="selector" onchange="cartt()" min="0">
+            <div id="carro">0</div>
+        </div>
+        <hr class="my-3">
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-dark">Seguir comprando &#128722</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-dark">Facturación y Envío &#128179</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-dark">Confirmación &#9989</button>
+            </div>
+        </div>
+    </div>
+    <hr class="my-3">
+
+
 
     <footer class="text-muted bg-dark">
         <div class="container">
