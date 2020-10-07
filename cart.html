@@ -58,23 +58,48 @@
         </div>
 
         <table class="table">
-            <thead>
+            <thead class="thead-light">
                 <tr>
                     <th scope="col">Artículo</th>
                     <th scope="col">Costo Unitario</th>
                     <th scope="col">Cantidad</th>
-                    <th scope="col">Subtotal</th>
+                    <th scope="col">Precio</th>
                 </tr>
             </thead>
         </table>
 
         <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <div id="asdf">asdf</div>
-            <div id="asdfa">asdfa</div>
+            <div id="asdf">🗑️ El pino </div>
+            <div id="asdfa">El precio</div>
             <input placeholder="Cantidad" type="number" id="selector" onchange="cartt()" min="0">
             <div id="carro">0</div>
         </div>
         <hr class="my-3">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <div id="asdf">🗑️ El auto</div>
+            <div id="asdfa">El precio</div>
+            <input placeholder="Cantidad" type="number" id="selector" onchange="cartt()" min="0">
+            <div id="carro">0</div>
+        </div>
+        <hr class="my-3">
+
+
+
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <div class="my-3">
+                <div>Subtotal</div>
+                <div>Costo de envío</div>
+                <div style="font-weight: bold">TOTAL</div>
+            </div>
+            <div class="my-3">
+                <div>Subtotal</div>
+                <div>Costo de envío</div>
+                <div style="font-weight: bold">TOTAL</div>
+            </div>
+        </div>
+
+
+
 
 
         <div class="container">
@@ -83,7 +108,10 @@
                     <button type="button" class="btn btn-dark">Seguir comprando &#128722</button>
                 </div>
                 <div class="col">
-                    <button type="button" class="btn btn-dark">Facturación y Envío &#128179</button>
+                    <button type="button" class="btn btn-dark">Forma de pago &#128179</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-dark">Envío &#x1F69A</button>
                 </div>
                 <div class="col">
                     <button type="button" class="btn btn-dark">Confirmación &#9989</button>
@@ -91,33 +119,32 @@
             </div>
         </div>
         <hr class="my-3">
+    </div>
 
-
-
-        <footer class="text-muted bg-dark">
-            <div class="container">
-                <p class="float-right">
-                    <a href="#">Volver arriba</a>
-                </p>
-                <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-            </div>
-        </footer>
-
-        <div class="container p-5">
+    <footer class="text-muted bg-dark">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Volver arriba</a>
+            </p>
+            <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
         </div>
-        <div id="spinner-wrapper">
-            <div class="lds-ring">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+    </footer>
+
+    <div class="container p-5">
+    </div>
+    <div id="spinner-wrapper">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/dropzone.js"></script>
-        <script src="js/init.js"></script>
-        <script src="js/cart.js"></script>
+    </div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 
 </html>
