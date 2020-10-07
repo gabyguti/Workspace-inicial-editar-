@@ -55,15 +55,18 @@
     <div class="container mt-5">
         <div class="text-center p-4">
             <h2 id="cart">🛒 Mi Carrito</h2>
-            <hr class="my-3">
         </div>
 
-        <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <div class="py-2 d-none d-md-inline-block">Artículo</div>
-            <div class="py-2 d-none d-md-inline-block">Costo unitario</div>
-            <div class="py-2 d-none d-md-inline-block">Cantidad</div>
-            <div class="py-2 d-none d-md-inline-block">Subtotal</div>
-        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Artículo</th>
+                    <th scope="col">Costo Unitario</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Subtotal</th>
+                </tr>
+            </thead>
+        </table>
 
         <div class="container d-flex flex-column flex-md-row justify-content-between">
             <div id="asdf">asdf</div>
@@ -72,49 +75,49 @@
             <div id="carro">0</div>
         </div>
         <hr class="my-3">
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <button type="button" class="btn btn-dark">Seguir comprando &#128722</button>
-            </div>
-            <div class="col">
-                <button type="button" class="btn btn-dark">Facturación y Envío &#128179</button>
-            </div>
-            <div class="col">
-                <button type="button" class="btn btn-dark">Confirmación &#9989</button>
-            </div>
-        </div>
-    </div>
-    <hr class="my-3">
 
 
-
-    <footer class="text-muted bg-dark">
         <div class="container">
-            <p class="float-right">
-                <a href="#">Volver arriba</a>
-            </p>
-            <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-dark">Seguir comprando &#128722</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-dark">Facturación y Envío &#128179</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-dark">Confirmación &#9989</button>
+                </div>
+            </div>
         </div>
-    </footer>
+        <hr class="my-3">
 
-    <div class="container p-5">
-    </div>
-    <div id="spinner-wrapper">
-        <div class="lds-ring">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+
+
+        <footer class="text-muted bg-dark">
+            <div class="container">
+                <p class="float-right">
+                    <a href="#">Volver arriba</a>
+                </p>
+                <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+            </div>
+        </footer>
+
+        <div class="container p-5">
         </div>
-    </div>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/dropzone.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/cart.js"></script>
+        <div id="spinner-wrapper">
+            <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/dropzone.js"></script>
+        <script src="js/init.js"></script>
+        <script src="js/cart.js"></script>
 </body>
 
 </html>
