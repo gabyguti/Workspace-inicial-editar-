@@ -54,9 +54,10 @@
 
     <div class="container mt-5">
         <div class="text-center p-4">
-            <h2 id="cart">🛒 Mi Carrito</h2>
+            <h2>🛒 Mi Carrito</h2>
         </div>
 
+        <!--TABLA-->
         <table class="table">
             <thead class="thead-light">
                 <tr>
@@ -67,7 +68,7 @@
                 </tr>
             </thead>
         </table>
-
+        <!--Primera línea-->
         <div class="container d-flex flex-column flex-md-row justify-content-between">
             <div id="asdf">🗑️ El pino </div>
             <div id="asdfa">El precio</div>
@@ -75,16 +76,15 @@
             <div id="carro">0</div>
         </div>
         <hr class="my-3">
+        <!--Segunda línea-->
         <div class="container d-flex flex-column flex-md-row justify-content-between">
             <div id="asdf">🗑️ El auto</div>
             <div id="asdfa">El precio</div>
-            <input placeholder="Cantidad" type="number" id="selector" onchange="cartt()" min="0">
-            <div id="carro">0</div>
+            <input placeholder="Cantidad" type="number" id="selector1" onchange="cartt1()" min="0">
+            <div id="carro1">0</div>
         </div>
         <hr class="my-3">
-
-
-
+        <div id="cart"></div>
         <div class="container d-flex flex-column flex-md-row justify-content-between">
             <div class="my-3">
                 <div>Subtotal</div>
@@ -92,9 +92,9 @@
                 <div style="font-weight: bold">TOTAL</div>
             </div>
             <div class="my-3">
-                <div>Subtotal</div>
-                <div>Costo de envío</div>
-                <div style="font-weight: bold">TOTAL</div>
+                <div id="subtotal" onchange="cartt2()">USD 0</div>
+                <div id="costoEnvio">USD 3</div>
+                <div style="font-weight: bold" id="total">USD 0</div>
             </div>
         </div>
 
@@ -102,6 +102,15 @@
 
 
 
+
+
+
+
+
+
+
+
+        <!--BOTONES-->
         <div class="container">
             <div class="row">
                 <div class="col">
