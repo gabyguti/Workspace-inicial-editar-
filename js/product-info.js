@@ -26,11 +26,13 @@ function showComments() {
     for (let i = 0; i < carComments.length; i++) {
         let comment = carComments[i];
 
+        //AGREGAR ESTRELLAS AL LADO RATING COMENTARIOS, id="score1"
+
         htmlContentToAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="font-weight-bold row">Estrellas
                     <div class="col-3">
-                    <h5 class="mb-1">` + comment.score + `</h5>
+                    <h5 class="mb-1" id="score1">` + comment.score + `</h5> 
                     </div>
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">

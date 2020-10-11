@@ -61,30 +61,50 @@
         <table class="table">
             <thead class="thead-light">
                 <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                     <th scope="col">Artículo</th>
                     <th scope="col">Costo Unitario</th>
+                </tr>
+            </thead>
+        </table>
+
+        <div id="cart"></div>
+
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                     <th scope="col">Cantidad</th>
                     <th scope="col">Precio</th>
                 </tr>
             </thead>
         </table>
-        <!--Primera línea-->
-        <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <div id="asdf">🗑️ El pino </div>
-            <div id="asdfa">El precio</div>
-            <input placeholder="Cantidad" type="number" id="selector" onchange="cartt()" min="0">
-            <div id="carro">0</div>
+        <!--Cálculo cantidad artículos-->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <input placeholder="Cantidad Producto 1" type="number" id="selector" onchange="cartt()" min="0">
+                    <div class="row">
+                        <input placeholder="Cantidad Producto 2" type="number" id="selector1" onchange="cartt1()" min="0">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div id="carro">Total: 0</div>
+                        <div id="carro1">Total: 0</div>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <hr class="my-3">
-        <!--Segunda línea-->
-        <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <div id="asdf">🗑️ El auto</div>
-            <div id="asdfa">El precio</div>
-            <input placeholder="Cantidad" type="number" id="selector1" onchange="cartt1()" min="0">
-            <div id="carro1">0</div>
-        </div>
-        <hr class="my-3">
-        <div id="cart"></div>
+
         <div class="container d-flex flex-column flex-md-row justify-content-between">
             <div class="my-3">
                 <div>Subtotal</div>
@@ -97,18 +117,6 @@
                 <div style="font-weight: bold" id="total">USD 0</div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
         <!--BOTONES-->
         <div class="container">

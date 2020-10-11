@@ -71,21 +71,19 @@ function showCart(array) {
         let cart = array[i];
 
         htmlContentToAppend += `
-        <a href="cart.html" class="list-group-item list-group-item-action">
-                 <div class="row">
-                <h5 class="col-sm">` + cart.name + `</h5>
-                </div>
-                <div> 
-                    <h6 class="mb-1">` + cart.currency + " " + cart.unitCost + `</h6>
-                    <h7 class="font-weight-bold mb-1">` + cart.count + `</h7>
-                    <div class="col-4">
-                        <img src="` + cart.src + `" alt="` + `" class="img-thumbnail">
-                    </div>
-                </div>
+        <div class="container-md-6">
+        <a href="cart.html" class="row list-group-item-action">
+        <div class="col-md-3"><img src="` + cart.src + `" alt="` + `" class="img-thumbnail"></div>
+            <h5 class="col">` + cart.name + `</h5>
+            <h6 class="col">` + cart.currency + "   " + cart.unitCost + `</h6>
+            </div>
+            <div container-md-6>    
+                <h7 class="col">` + cart.count + `</h7>
             </div>
         </a>
-        `
+    `
     }
+
     document.getElementById("cart").innerHTML = htmlContentToAppend;
 };
 
