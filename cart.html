@@ -117,7 +117,12 @@
                 <div style="font-weight: bold" id="total">USD 0</div>
             </div>
         </div>
+        <hr class="my-3">
 
+
+
+        <!--BOTONES-->
+        <!--Envío-->
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -132,55 +137,13 @@
                         <h6 id="errorEnvio"></h6>
                     </div>
                 </div>
-                <div class="col">
-
-                </div>
             </div>
         </div>
         <hr class="my-3">
 
 
-
-
-
-
-
-
-
-
-        <!--BOTONES-->
-        <!-- ASI ANDABA A MEDIAS    <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="btn btn-dark">Envío &#x1F69A</div>
-                    <div class="col">
-                        <div class="col">
-                            <input type="radio" name="envio" value="1"> Premium (24 horas)</div>
-                        <div class="col">
-                            <input type="radio" name="envio" value="2"> Express (3 a 5 días)</div>
-                        <div class="col">
-                            <input type="radio" name="envio" value="3"> Normal (7 días)</div>
-                    </div>
-                    </form>
-                    <h6 id="errorEnvio"></h6>
-                </div>
-                <div class="col">
-                    <a type="button" class="btn btn-dark" href="categories.html">Seguir comprando &#128722</a>
-                </div>
-                <div class="col">
-                    <button type="button" class="btn btn-dark" onclick="validarPago()">Confirmación &#9989</button>
-                </div>
-            </div>
-        </div>
-        <hr class="my-3">-->
-
-
-
-
-
-        <!-- Button trigger modal -->
+        <!-- Botón forma de pago con Modal -->
         <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#staticBackdrop">Forma de pago &#128179</button>
-
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -192,21 +155,36 @@
           </button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form name="form">
                             <label for="formaPago"></label>
-                            <input type="radio" name="pago" value="1"> Tarjeta de crédito
-                            <input type="radio" name="pago" value="2"> Tarjeta de débito
-                            <input type="radio" name="pago" value="3"> Transferencia bancaria
-                            <button type="submit" class="btn btn-dark" onclick="validarPago()">Enviar</button>
+                            <input type="radio" name="tarjeta" value="small"> Tarjeta de crédito
+                            <input type="radio" name="tarjeta" value="small"> Tarjeta de débito
+                            <input type="radio" name="tarjeta" value="small"> Transferencia bancaria
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-dark" onclick="validarPago()">Enviary</button>
+                        <h6 id="errorFormaPago"></h6>
+                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary" onclick="validarFormaPago()">Aceptar</button>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <a type="button" class="btn btn-dark" href="categories.html">Seguir comprando &#128722</a>
         <button class="btn btn-dark" onclick="validarEnvio()">Confirmación &#9989</button>
         <hr class="my-3">

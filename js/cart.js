@@ -99,6 +99,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
 
 
+
+
+
 //Validación método envío (Grupal, Entrega 6)
 function validarEnvio() {
     var x = document.getElementById('envio').value;
@@ -113,16 +116,15 @@ function validarEnvio() {
     }
 }
 
-
-
-
-
-
-/*for (i = 0; i < pago.length; i++) {
+//Validación forma de pago (Grupal, Entrega 6)
+function validarFormaPago() {
+    var pago = document.form.tarjeta; //Toma el elemento con name "tarjeta" que está dentro del elemento de name "form" (línea 158-162 de cart.html)
+    var errorFormaPago = document.getElementById('errorFormaPago');
+    for (i = 0; i < pago.length; i++) {
         if (pago[i].checked) {
-            errorFormaDePago.innerHTML = 'hola';
+            errorFormaPago.innerHTML = '';
         } else {
-            errorFormaDePago.innerHTML = 'Debe seleccionar método de envío';
-        };
-    };
-};*/
+            errorFormaPago.innerHTML = 'Debe seleccionar forma de pago';
+        }
+    }
+}
