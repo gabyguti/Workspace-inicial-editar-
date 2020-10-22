@@ -213,7 +213,7 @@ body {
     font-size: 20px;
 }
 
-input[type="radio"] {
+.rate input[type="radio"] {
     display: none;
 }
 
@@ -231,7 +231,7 @@ input[type="radio"] {
     color: orange;
 }
 
-input[type="radio"]:checked~label {
+.rate input[type="radio"]:checked~label {
     color: orange;
 }
 

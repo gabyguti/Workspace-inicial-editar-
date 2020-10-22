@@ -95,3 +95,34 @@ document.addEventListener("DOMContentLoaded", function(e) {
         };
     });
 });
+
+
+
+
+//Validación método envío (Grupal, Entrega 6)
+function validarEnvio() {
+    var x = document.getElementById('envio').value;
+    var errorEnvio = document.getElementById('errorEnvio');
+
+    if (x == 0) {
+        document.getElementById('envio').style.borderColor = 'red';
+        errorEnvio.innerHTML = 'Debe seleccionar metodo de envio';
+    } else {
+        document.getElementById('envio').style.borderColor = 'black';
+        errorEnvio.innerHTML = '';
+    }
+}
+
+
+
+
+
+
+/*for (i = 0; i < pago.length; i++) {
+        if (pago[i].checked) {
+            errorFormaDePago.innerHTML = 'hola';
+        } else {
+            errorFormaDePago.innerHTML = 'Debe seleccionar método de envío';
+        };
+    };
+};*/
