@@ -119,8 +119,6 @@
         </div>
         <hr class="my-3">
 
-
-
         <!--BOTONES-->
         <!--Envío-->
         <div class="container">
@@ -141,9 +139,9 @@
         </div>
         <hr class="my-3">
 
-
         <!-- Botón forma de pago con Modal -->
         <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#staticBackdrop">Forma de pago &#128179</button>
+        <h6 id="errorFormaPago2"></h6>
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -171,25 +169,13 @@
             </div>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <!--Seguir comprando-->
         <a type="button" class="btn btn-dark" href="categories.html">Seguir comprando &#128722</a>
-        <button class="btn btn-dark" onclick="validarEnvio()">Confirmación &#9989</button>
+        <!--Confirmación compra-->
+        <button class="btn btn-dark" onclick="validarTodo()">Confirmación &#9989</button>
         <hr class="my-3">
+        <h6 id="exito"></h6>
     </div>
-
 
     <footer class="text-muted bg-dark">
         <div class="container">

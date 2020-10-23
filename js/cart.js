@@ -96,35 +96,32 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
 });
 
-
-
-
-
-
-
-//Validación método envío (Grupal, Entrega 6)
-function validarEnvio() {
+//Validación forma de pago (Grupal, Entrega 6, con modificaciones personales)
+function validarTodo() {
     var x = document.getElementById('envio').value;
     var errorEnvio = document.getElementById('errorEnvio');
+
+    var pago = document.form.tarjeta; //Toma el elemento con name "tarjeta" que está dentro del elemento de name "form" (línea 158-162 de cart.html)
+    var errorFormaPago = document.getElementById('errorFormaPago');
+    var errorFormaPago2 = document.getElementById('errorFormaPago2');
 
     if (x == 0) {
         document.getElementById('envio').style.borderColor = 'red';
         errorEnvio.innerHTML = 'Debe seleccionar metodo de envio';
-    } else {
+    } else if (x != 0) {
         document.getElementById('envio').style.borderColor = 'black';
         errorEnvio.innerHTML = '';
-    }
-}
 
-//Validación forma de pago (Grupal, Entrega 6)
-function validarFormaPago() {
-    var pago = document.form.tarjeta; //Toma el elemento con name "tarjeta" que está dentro del elemento de name "form" (línea 158-162 de cart.html)
-    var errorFormaPago = document.getElementById('errorFormaPago');
-    for (i = 0; i < pago.length; i++) {
-        if (pago[i].checked) {
-            errorFormaPago.innerHTML = '';
-        } else {
-            errorFormaPago.innerHTML = 'Debe seleccionar forma de pago';
+        for (i = 0; i < pago.length; i++) {
+            if ((pago[i].checked) && (x != 0)) {
+                errorFormaPago.innerHTML = '';
+                errorFormaPago2.innerHTML = '';
+                exito.innerHTML = '¡Has comprado con éxito!';
+                /*  window.location.href = 'cart.html';*/
+            } else {
+                errorFormaPago.innerHTML = 'Debe seleccionar forma de pago';
+                errorFormaPago2.innerHTML = 'Debe seleccionar forma de pago';
+            }
         }
     }
 }
