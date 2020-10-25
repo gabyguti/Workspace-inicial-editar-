@@ -3,8 +3,9 @@ let jsonGeneral;
 let jsonGeneral1;
 let jsonSubtotal;
 let jsonTotal;
+let totalFinal = [];
 
-// Json productos del carrito
+//ENTREGA 5: Json productos del carrito
 var cartArray = [];
 
 function showCart(array) {
@@ -37,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
 });
 
-// Cálculo cantidad de productos por costo unitario del Producto 1
+// //ENTREGA 5: Grupal
+//Cálculo cantidad de productos por costo unitario del Producto 1
 function result(jsonGeneral) {
     let costo;
     let object = jsonGeneral.articles;
@@ -69,52 +71,42 @@ function cartt1() {
     result1(jsonGeneral1);
 }
 
-// Cálculo Subtotal
+
+//ENTREGA 6: Cálculo SUBTOTAL
 function subTotal() {
     let costo1;
     let costo2;
     let object = jsonSubtotal.articles;
-    let valor1 = document.getElementById('selector').value;
-    let valor2 = document.getElementById('selector1').value;
+    let valor1 = document.getElementById('selector').value; //Input cantidad producto 1
+    let valor2 = document.getElementById('selector1').value; //Input cantidad producto 2
 
-    costo1 = object[0].unitCost / 40;
+    costo1 = object[0].unitCost / 40; //Pasa de $ a USD
     costo2 = object[1].unitCost;
 
-    let resultado = (valor1 * costo1) + (valor2 * costo2);
-    document.getElementById('subtotal').innerHTML = object[1].currency + ` ` + resultado + ``;
+    totalFinal = (valor1 * costo1) + (valor2 * costo2);
+    document.getElementById('subtotal').innerHTML = object[1].currency + ` ` + totalFinal + ``; //Muestra el valor subtotal en pantalla
 }
 
-// Cálculo Envío
-function costoEnvio() {
-    let costoEnvio = document.getElementById('costoEnvio');
-    let tipoEnvio = document.getElementById('envio').value;
+// Cálculo ENVIO Y TOTAL
+function costoEnvioConTotal() {
+    let costoEnvio = document.getElementById('costoEnvio'); //Muestra el valor del envío en pantalla
+    let tipoEnvio = document.getElementById('envio').value; //Select con drop-down y opciones de envío
+
+    let total = document.getElementById('total'); //Muestra el valor del total en pantalla
 
     if (tipoEnvio == 1) {
-        costoEnvio.innerHTML = `12 USD`;
+        costoEnvio.innerHTML = `USD 12`;
+        total.innerHTML = totalFinal + 12;
     } else if (tipoEnvio == 2) {
-        costoEnvio.innerHTML = `25 USD`;
+        costoEnvio.innerHTML = `USD 25`;
+        total.innerHTML = totalFinal + 25;
     } else if (tipoEnvio == 3) {
-        costoEnvio.innerHTML = `50 USD`;
+        costoEnvio.innerHTML = `USD 50`;
+        total.innerHTML = totalFinal + 50;
     }
 }
 
-// Cálculo Total
-
-// id="total"  donde iria el total (suma de todo)
-
-document.addEventListener("DOMContentLoaded", function(e) {
-    getJSONData(CART_URL).then(function(resultObj) {
-        if (resultObj.status === "ok") {
-            console.log(resultObj.data);
-            jsonGeneral = resultObj.data;
-            jsonGeneral1 = resultObj.data;
-            jsonSubtotal = resultObj.data;
-        };
-    });
-});
-
-
-// Validación Envío (Entrega 6)
+// Validación Envío
 function validarEnvio() {
     var envio = document.getElementById('envio').value;
     var errorEnvio = document.getElementById('errorEnvio');
@@ -130,7 +122,7 @@ function validarEnvio() {
     };
 };
 
-// Validación Pago (Entrega 6)
+// Validación Pago
 function validarPago() {
     var pago = document.form.tarjeta; //Toma el elemento con name "tarjeta" que está dentro del elemento de name "form" (línea 157-160 de cart.html)
     var errorFormaPago = document.getElementById('errorFormaPago');
@@ -147,8 +139,7 @@ function validarPago() {
         }
     }
 }
-
-
+// Validación Modal
 function validarModal() {
     var pago1 = document.getElementById('pago1');
     // var pago2 = document.getElementById('pago2');
@@ -167,45 +158,17 @@ function validarModal() {
     }
 }
 
-
-
-
 function confirmar() {
     exito.innerHTML = '¡Has comprado con éxito!';
 }
 
-
-
-
-
-
-
-
-/* function validarTodo() {
-    var x = document.getElementById('envio').value;
-    var errorEnvio = document.getElementById('errorEnvio');
-
-    var pago = document.form.tarjeta; //Toma el elemento con name "tarjeta" que está dentro del elemento de name "form" (línea 158-162 de cart.html)
-    var errorFormaPago = document.getElementById('errorFormaPago');
-    var errorFormaPago2 = document.getElementById('errorFormaPago2');
-
-    if (x == 0) {
-        document.getElementById('envio').style.borderColor = 'red';
-        errorEnvio.innerHTML = 'Debe seleccionar metodo de envio';
-    } else if (x != 0) {
-        document.getElementById('envio').style.borderColor = 'black';
-        errorEnvio.innerHTML = '';
-
-        for (i = 0; i < pago.length; i++) {
-            if ((pago[i].checked) && (x != 0)) {
-                errorFormaPago.innerHTML = '';
-                errorFormaPago2.innerHTML = '';
-                exito.innerHTML = '¡Has comprado con éxito!'; */
-/*  window.location.href = 'cart.html';*/
-/* } else {
-                errorFormaPago.innerHTML = 'Debe seleccionar forma de pago';
-                errorFormaPago2.innerHTML = 'Debe seleccionar forma de pago';
-            }
-        }
-    }
-}*/
+document.addEventListener("DOMContentLoaded", function(e) {
+    getJSONData(CART_URL).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            console.log(resultObj.data);
+            jsonGeneral = resultObj.data;
+            jsonGeneral1 = resultObj.data;
+            jsonSubtotal = resultObj.data;
+        };
+    });
+});
