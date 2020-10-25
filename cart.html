@@ -1,122 +1,108 @@
 <!DOCTYPE html>
-<saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
-    <html lang="en">
+<saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/>
+<html lang="en">
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <title>eMercado - Todo lo que busques está aquí</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>eMercado - Todo lo que busques está aquí</title>
 
-        <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
-        <style>
-            .bd-placeholder-img {
-                font-size: 1.125rem;
-                text-anchor: middle;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
             }
-            
-            @media (min-width: 768px) {
-                .bd-placeholder-img-lg {
-                    font-size: 3.5rem;
-                }
-            }
-        </style>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet">
-        <link href="css/dropzone.css" rel="stylesheet">
-    </head>
+        }
+    </style>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/dropzone.css" rel="stylesheet">
+</head>
 
-    <body>
-        <nav class="site-header sticky-top py-1 bg-dark">
-            <div class="container d-flex flex-column flex-md-row justify-content-between">
-                <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-                <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-                <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-                <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-                <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="recordar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="my-profile.html">Ver perfil</a>
-                        <a class="dropdown-item" href="cart.html">Carrito</a>
-                        <a class="dropdown-item" href="index.html" onclick="cerrarSesion()">Cerrar sesión</a>
-                    </div>
+<body>
+    <nav class="site-header sticky-top py-1 bg-dark">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+            <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+            <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+            <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+            <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="recordar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="my-profile.html">Ver perfil</a>
+                    <a class="dropdown-item" href="cart.html">Carrito</a>
+                    <a class="dropdown-item" href="index.html" onclick="cerrarSesion()">Cerrar sesión</a>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <div class="container mt-5">
-            <div class="text-center p-4">
-                <h2>🛒 Mi Carrito</h2>
-            </div>
+    <div class="container mt-5">
+        <div class="text-center p-4">
+            <h2>🛒 Mi Carrito</h2>
+        </div>
 
-            <!--TABLA-->
-            <table class="table">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                        <th scope="col">Artículo</th>
-                        <th scope="col">Costo Unitario</th>
-                    </tr>
-                </thead>
-            </table>
+        <!--TABLA-->
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col">Artículo</th>
+                    <th scope="col">Costo Unitario</th>
+                </tr>
+            </thead>
+        </table>
 
-            <div id="cart"></div>
+        <div id="cart"></div>
 
-            <table class="table">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">Precio</th>
-                    </tr>
-                </thead>
-            </table>
-            <!--Cálculo cantidad artículos-->
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <input placeholder="Cantidad Producto 1" type="number" id="selector" onchange="cartt(); subTotal()" min="0">
-                        <div class="row">
-                            <input placeholder="Cantidad Producto 2" type="number" id="selector1" onchange="cartt1(); subTotal()" min="0">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div id="carro">Total: 0</div>
-                            <div id="carro1">Total: 0</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio</th>
+                </tr>
+            </thead>
+        </table>
+        <!--Cálculo cantidad artículos-->
 
-            <hr class="my-3">
-
-            <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <div class="row">
+            <div class="col">
+                <input placeholder="Cantidad Producto 1" type="number" id="selector" onchange="cartt(); subTotal()" min="0">
                 <div class="my-3">
-                    <div>Subtotal</div>
-                    <div>Costo de envío</div>
-                    <div style="font-weight: bold">TOTAL</div>
-                </div>
-                <div class="my-3">
-                    <div id="subtotal" onchange="subTotal()">USD 0</div>
-                    <div id="costoEnvio" onchange="costoEnvioConTotal()">USD 0</div>
-                    <div style="font-weight: bold" id="total" onchange="costoEnvioConTotal()">USD 0</div>
+                    <input placeholder="Cantidad Producto 2" type="number" id="selector1" onchange="cartt1(); subTotal()" min="0">
                 </div>
             </div>
+            <div class="row">
+                <div class="col">
+                    <div id="carro">Total: 0</div>
+                    <div class="my-3">
+                        <div id="carro1">Total: 0</div>
+                    </div>
+                </div>
+            </div>
+
             <hr class="my-3">
 
             <!--BOTONES-->
@@ -125,19 +111,20 @@
                     <div class="col">
                         <!--Envío-->
                         <div class="btn btn-dark">Envío &#x1F69A</div>
-                        <div>
-                            <select onchange="costoEnvioConTotal()" name="envio" id="envio">
+                        <div class="my-3">
+                            <div>
+                                <select onchange="costoEnvioConTotal()" name="envio" id="envio">
                             <option disabled selected value="0"></option>
                             <option value="1">Normal (7 días)</option>
                             <option value="2">Express (3 a 5 días)</option>
                             <option value="3">Premium (24 horas)</option>
                         </select>
-                            <h6 id="errorEnvio"></h6>
+                                <h6 id="errorEnvio"></h6>
+                            </div>
                         </div>
                         <button type="button" id="btn1" onclick="validarEnvio()" class="btn btn-dark">Siguiente</button>
                     </div>
                 </div>
-
                 <hr class="my-3">
 
                 <!-- Botón forma de pago con Modal -->
@@ -150,8 +137,8 @@
                             <div class="modal-header">
                                 <h5 class="modal-title" id="staticBackdropLabel">Forma de pago</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+                            <span aria-hidden="true">&times;</span>
+                          </button>
                             </div>
                             <div class="modal-body">
                                 <form name="form">
@@ -167,11 +154,11 @@
                                                         <div class="form-group">
                                                             <label for="tarj">Tipo de tarjeta</label>
                                                             <select class="form-control" name="tarj" id="tarj">
-                                                        <option disabled selected value="0"></option>
-                                                        <option value="1">Visa</option>
-                                                        <option value="2">Master Card</option>
-                                                        <option value="3">American Express</option>
-                                                    </select>
+                                                                        <option disabled selected value="0"></option>
+                                                                        <option value="1">Visa</option>
+                                                                        <option value="2">Master Card</option>
+                                                                        <option value="3">American Express</option>
+                                                                    </select>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="nom">Nombre y apellido del titular</label>
@@ -199,12 +186,12 @@
                                                 <div class="form-group">
                                                     <label for="banco"> Seleccione el Banco</label>
                                                     <select class="form-control" name="banco" id="banco">
-                                                    <option disabled selected value="0"></option>
-                                                    <option value="1">BROU</option>
-                                                    <option value="2">Scotiabank</option>
-                                                    <option value="3">Santander</option>
-                                                    <option value="3">Itaú</option>
-                                                </select>
+                                                                    <option disabled selected value="0"></option>
+                                                                    <option value="1">BROU</option>
+                                                                    <option value="2">Scotiabank</option>
+                                                                    <option value="3">Santander</option>
+                                                                    <option value="3">Itaú</option>
+                                                                </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="cuentaOrig">Cuenta de orígen</label>
@@ -236,37 +223,53 @@
                 <hr class="my-3">
                 <!--Confirmación compra-->
                 <button class="btn btn-dark" style="display: none" id="myBtn2" onclick="confirmar()">Confirmación &#9989</button>
-                <h6 class="alert-success font-weight-bold" role="alert" id="exito"></h6>
                 <!--Seguir comprando-->
-                <a type="button" class="btn btn-dark" href="categories.html">Seguir comprando &#128722</a>
-                <hr class="my-3">
+                <div class="my-3">
+                    <a type="button" class="btn btn-dark" href="categories.html">Seguir comprando &#128722</a>
+                    <hr class="my-3">
+                </div>
+
+                <div class="container d-flex flex-column flex-md-row justify-content-between">
+                    <div class="my-3">
+                        <div>Subtotal</div>
+                        <div>Costo de envío</div>
+                        <div style="font-weight: bold">TOTAL</div>
+                    </div>
+                    <div class="my-3">
+                        <div id="subtotal" onchange="subTotal()">USD 0</div>
+                        <div id="costoEnvio" onchange="costoEnvioConTotal()">USD 0</div>
+                        <div style="font-weight: bold" id="total" onchange="costoEnvioConTotal()">USD 0</div>
+                    </div>
+                </div>
+                <h5 class="alert-success font-weight-bold" role="alert" id="exito"></h5>
             </div>
         </div>
+    </div>
 
-        <footer class="text-muted bg-dark">
-            <div class="container">
-                <p class="float-right">
-                    <a href="#">Volver arriba</a>
-                </p>
-                <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-            </div>
-        </footer>
-
-        <div class="container p-5">
+    <footer class="text-muted bg-dark">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Volver arriba</a>
+            </p>
+            <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
         </div>
-        <div id="spinner-wrapper">
-            <div class="lds-ring">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/dropzone.js"></script>
-        <script src="js/init.js"></script>
-        <script src="js/cart.js"></script>
-    </body>
+    </footer>
 
-    </html>
+    <div class="container p-5">
+    </div>
+    <div id="spinner-wrapper">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+
+</html>
