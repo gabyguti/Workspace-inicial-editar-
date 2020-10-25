@@ -89,9 +89,9 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <input placeholder="Cantidad Producto 1" type="number" id="selector" onchange="cartt()" min="0">
+                    <input placeholder="Cantidad Producto 1" type="number" id="selector" onchange="cartt(); subTotal()" min="0">
                     <div class="row">
-                        <input placeholder="Cantidad Producto 2" type="number" id="selector1" onchange="cartt1()" min="0">
+                        <input placeholder="Cantidad Producto 2" type="number" id="selector1" onchange="cartt1(); subTotal()" min="0">
                     </div>
                 </div>
                 <div class="row">
@@ -112,21 +112,21 @@
                 <div style="font-weight: bold">TOTAL</div>
             </div>
             <div class="my-3">
-                <div id="subtotal" onchange="cartt2()">USD 0</div>
-                <div id="costoEnvio">USD 3</div>
+                <div id="subtotal" onchange="subTotal()">USD 0</div>
+                <div id="costoEnvio" onchange="costoEnvio()">USD 0</div>
                 <div style="font-weight: bold" id="total">USD 0</div>
             </div>
         </div>
         <hr class="my-3">
 
         <!--BOTONES-->
-        <!--Envío-->
         <div class="container">
             <div class="row">
                 <div class="col">
+                    <!--Envío-->
                     <div class="btn btn-dark">Envío &#x1F69A</div>
                     <div>
-                        <select name="envio" id="envio">
+                        <select onchange="costoEnvio()" name="envio" id="envio">
                             <option disabled selected value="0"></option>
                             <option value="1">Normal (7 días)</option>
                             <option value="2">Express (3 a 5 días)</option>
@@ -134,47 +134,113 @@
                         </select>
                         <h6 id="errorEnvio"></h6>
                     </div>
+                    <button type="button" id="btn1" onclick="validarEnvio()" class="btn btn-dark">Siguiente</button>
                 </div>
             </div>
-        </div>
-        <hr class="my-3">
 
-        <!-- Botón forma de pago con Modal -->
-        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#staticBackdrop">Forma de pago &#128179</button>
-        <h6 id="errorFormaPago2"></h6>
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Forma de pago</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <hr class="my-3">
+
+            <!-- Botón forma de pago con Modal -->
+            <button type="button" style="display: none" id="myBtn" class="btn btn-dark" data-toggle="modal" data-target="#staticBackdrop">Forma de pago &#128179</button>
+            <h6 id="errorFormaPago2"></h6>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Forma de pago</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-                    </div>
-                    <div class="modal-body">
-                        <form name="form">
-                            <label for="formaPago"></label>
-                            <input type="radio" name="tarjeta" value="small"> Tarjeta de crédito
-                            <input type="radio" name="tarjeta" value="small"> Tarjeta de débito
-                            <input type="radio" name="tarjeta" value="small"> Transferencia bancaria
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <h6 id="errorFormaPago"></h6>
-                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" onclick="validarFormaPago()">Aceptar</button>
+                        </div>
+                        <div class="modal-body">
+                            <form name="form">
+                                <input type="radio" id="pago1" name="tarjeta" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1"> Tarjeta de crédito
+                                <input type="radio" id="pago2" name="tarjeta" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Transferencia bancaria
+                                <input type="radio" id="pago3" name="tarjeta">Pago con efectivo contra entrega
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="collapse multi-collapse" id="multiCollapseExample1">
+                                            <div class="card card-body">
+                                                <!--Desplega input para ingresar info de Tarjeta-->
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="tarj">Tipo de tarjeta</label>
+                                                        <select class="form-control" name="tarj" id="tarj">
+                                                        <option disabled selected value="0"></option>
+                                                        <option value="1">Visa</option>
+                                                        <option value="2">Master Card</option>
+                                                        <option value="3">American Express</option>
+                                                    </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="nom">Nombre y apellido del titular</label>
+                                                        <input class="form-control" type="text" id="nom" name="nom">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="num">Número tarjeta</label>
+                                                        <input class="form-control" id="num" name="num">
+                                                    </div>
+                                                    <div class="form-group"> <label for="vencim">Fecha de vencimiento</label>
+                                                        <input class="form-control" id="vencim" name="vencim">
+                                                    </div>
+                                                    <div class="form-group"> <label for="codig">Código de seguridad</label>
+                                                        <input class="form-control" id="codig" name="codi">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Desplega input para ingresar info de transferencia bancaria-->
+                                <div class="col">
+                                    <div class="collapse multi-collapse" id="multiCollapseExample2">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="banco"> Seleccione el Banco</label>
+                                                <select class="form-control" name="banco" id="banco">
+                                                    <option disabled selected value="0"></option>
+                                                    <option value="1">BROU</option>
+                                                    <option value="2">Scotiabank</option>
+                                                    <option value="3">Santander</option>
+                                                    <option value="3">Itaú</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cuentaOrig">Cuenta de orígen</label>
+                                                <input class="form-control" id="cuentaOrig" name="cuentaOrig">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="ctaDes">Cuenta de destino</label>
+                                                <input class="form-control" id="ctaDes" name="ctaDes">
+                                            </div>
+                                            <div class="form-group"><label for="importe">Importe</label>
+                                                <input class="form-control" type="number" id="importe" name="importe">
+                                            </div>
+                                            <div class="form-group"> <label for="asunto">Asunto</label>
+                                                <input class="form-control" id="asunto" name="asunto">
+                                            </div>
+                                    </div>
+                                    </form>
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <h6 class="error1 input-group alert-danger" id="errorFormaPago"></h6>
+                            <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button id="aceptar" type="button" class="btn btn-primary">Aceptar</button>
+                        </div>
                     </div>
                 </div>
             </div>
+            <button type="button" style="display: none" id="btn2" onclick="validarPago()" class="btn btn-dark">Siguiente</button>
+            <hr class="my-3">
+            <!--Confirmación compra-->
+            <button class="btn btn-dark" style="display: none" id="myBtn2" onclick="confirmar()">Confirmación &#9989</button>
+            <h6 class="alert-success font-weight-bold" role="alert" id="exito"></h6>
+            <!--Seguir comprando-->
+            <a type="button" class="btn btn-dark" href="categories.html">Seguir comprando &#128722</a>
+            <hr class="my-3">
         </div>
-
-        <!--Seguir comprando-->
-        <a type="button" class="btn btn-dark" href="categories.html">Seguir comprando &#128722</a>
-        <!--Confirmación compra-->
-        <button class="btn btn-dark" onclick="validarTodo()">Confirmación &#9989</button>
-        <hr class="my-3">
-        <h6 id="exito"></h6>
     </div>
 
     <footer class="text-muted bg-dark">
