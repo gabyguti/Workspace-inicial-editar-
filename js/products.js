@@ -23,6 +23,7 @@ function sortProducts(criteria, array) {
         });
     } else if (criteria === ORDER_BY_PROD_COUNT) {
         result = array.sort(function(a, b) {
+
             if (a.soldCount > b.soldCount) { return -1; }
             if (a.soldCount < b.soldCount) { return 1; }
             return 0;
@@ -39,25 +40,22 @@ function showProductsList() {
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.productCount) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.productCount) <= maxCount))) {
 
+            //Muestra en forma de cuadrícula
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">` + product.name + `</h4>
-                            <small class="text-muted">` + product.currency + " " + product.cost + "<br>" + product.soldCount + ` artículos vendidos</small>
-                        </div>
-                        <p class="mb-1">` + product.description + `</p>
-                    </div>
+            <div class="col-md-4 my-3">
+                <div class="card h-100">    
+                    <img src="` + product.imgSrc + `" alt="` + product.description + `" class="card-img-top" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="product-info.html">` + product.name + `</a></h5>
+                  <p class="card-text">` + product.description + ` </p>
+                  <p class="card-text">` + product.currency + " " + product.cost + ` </p>
+                  <p class="card-text"><small class="text-muted">artículos vendidos ` + product.soldCount + ` </small></p>
                 </div>
-            </a>
-            `
+              </div>
+              </div>
+              `
+            document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
         }
-
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
     }
 }
 

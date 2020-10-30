@@ -2,7 +2,6 @@ const CART_URL = "https://japdevdep.github.io/ecommerce-api/cart/654.json";
 let jsonGeneral;
 let jsonGeneral1;
 let jsonSubtotal;
-let jsonTotal;
 let totalFinal = [];
 
 //ENTREGA 5: Json productos del carrito
