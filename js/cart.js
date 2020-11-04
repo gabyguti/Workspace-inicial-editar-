@@ -13,7 +13,7 @@ function showCart(array) {
         let cart = array[i];
 
         htmlContentToAppend += `
-        <div class="container-md-6">
+        <div class="container-md-6 my-3">
         <a href="cart.html" class="row list-group-item-action">
         <div class="col-md-3"><img src="` + cart.src + `" alt="` + `" class="img-thumbnail"></div>
             <h5 class="col">` + cart.name + `</h5>
