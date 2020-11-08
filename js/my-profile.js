@@ -13,7 +13,7 @@ function guardar() {
     document.getElementById("show3").innerHTML = mail;
     document.getElementById("show4").innerHTML = contacto;
 
-    objeto.apellido = nombreApellido;
+    objeto.nombreApellido = nombreApellido;
     objeto.edad = edad;
     objeto.mail = mail;
     objeto.contacto = contacto;
@@ -27,8 +27,8 @@ function guardar() {
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e) {
     var datosPerfil = JSON.parse(localStorage.getItem("datos"));
-    document.getElementById("nombreApellido").innerHTML = datosPerfil.nombreApellido;
-    document.getElementById("edad").innerHTML = datosPerfil.edad;
-    document.getElementById("mail").innerHTML = datosPerfil.mail;
-    document.getElementById("contacto").innerHTML = datosPerfil.contacto;
+    document.getElementById("show1").innerHTML = datosPerfil.nombreApellido;
+    document.getElementById("show2").innerHTML = datosPerfil.edad;
+    document.getElementById("show3").innerHTML = datosPerfil.mail;
+    document.getElementById("show4").innerHTML = datosPerfil.contacto;
 });
